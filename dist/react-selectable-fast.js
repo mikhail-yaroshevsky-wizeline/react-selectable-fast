@@ -705,7 +705,7 @@
                 }
               }),
               (o.registerSelectable = function(e) {
-                o.registry.add(e), e.props.selected && o.selectedItems.add(e)
+                o.registry.add(e), e.state.selected && o.selectedItems.add(e)
               }),
               (o.unregisterSelectable = function(e) {
                 o.registry.delete(e), o.selectedItems.delete(e), o.selectingItems.delete(e)
