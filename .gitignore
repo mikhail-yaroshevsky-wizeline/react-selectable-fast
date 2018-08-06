@@ -1,7 +1,4 @@
 example/bundle.js
-lib
-dist
-build
 node_modules
 .DS_Store
 *.log
