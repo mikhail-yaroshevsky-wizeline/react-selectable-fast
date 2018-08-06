@@ -393,8 +393,8 @@ class SelectableGroup extends Component {
 
     // Don't init selection on selectableElement"
     // TODO add this to configuration props
-    if (!this.props.canStartOnSelectable && e.target != e.currentTarget) {
-      return;
+    if (!this.props.canStartOnSelectable && e.target !== e.currentTarget) {
+      return
     }
 
     this.updateWhiteListNodes()
