@@ -73,12 +73,12 @@
             o = t.scrollTop,
             r = t.scrollLeft,
             s = n(),
-            i = s.documentScrollTop,
-            l = s.documentScrollLeft,
+            l = s.documentScrollTop,
+            i = s.documentScrollLeft,
             c = e.getBoundingClientRect()
           return {
-            top: c.top + i + o,
-            left: c.left + l + r,
+            top: c.top + l + o,
+            left: c.left + i + r,
             offsetWidth: e.offsetWidth,
             offsetHeight: e.offsetHeight,
             computedWidth: c.width,
@@ -105,8 +105,8 @@
           }
         })(),
         s = o(0),
-        i = (n = s) && n.__esModule ? n : { default: n },
-        l = o(1)
+        l = (n = s) && n.__esModule ? n : { default: n },
+        i = o(1)
       function c(e, t) {
         if (!e)
           throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
@@ -118,7 +118,7 @@
           !(function(e, t) {
             if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
           })(this, t)
-          for (var r = arguments.length, s = Array(r), i = 0; i < r; i++) s[i] = arguments[i]
+          for (var r = arguments.length, s = Array(r), l = 0; l < r; l++) s[l] = arguments[l]
           return (
             (o = n = c(
               this,
@@ -153,7 +153,7 @@
             {
               key: 'render',
               value: function() {
-                return i.default.createElement(
+                return l.default.createElement(
                   this.props.component,
                   {
                     ref: this.getRootRef,
@@ -169,7 +169,7 @@
         )
       })()
       ;(a.defaultProps = { component: 'div' }),
-        (a.contextTypes = { selectable: l.object }),
+        (a.contextTypes = { selectable: i.object }),
         (t.default = a)
     },
     function(e, t, o) {
@@ -191,8 +191,8 @@
           }
         })(),
         s = o(0),
-        i = (n = s) && n.__esModule ? n : { default: n },
-        l = o(1)
+        l = (n = s) && n.__esModule ? n : { default: n },
+        i = o(1)
       function c(e, t) {
         if (!e)
           throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
@@ -204,7 +204,7 @@
           !(function(e, t) {
             if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
           })(this, t)
-          for (var r = arguments.length, s = Array(r), i = 0; i < r; i++) s[i] = arguments[i]
+          for (var r = arguments.length, s = Array(r), l = 0; l < r; l++) s[l] = arguments[l]
           return (
             (o = n = c(
               this,
@@ -239,7 +239,7 @@
             {
               key: 'render',
               value: function() {
-                return i.default.createElement(
+                return l.default.createElement(
                   this.props.component,
                   {
                     ref: this.getRootRef,
@@ -255,7 +255,7 @@
         )
       })()
       ;(a.defaultProps = { component: 'div' }),
-        (a.contextTypes = { selectable: l.object }),
+        (a.contextTypes = { selectable: i.object }),
         (t.default = a)
     },
     function(e, t, o) {
@@ -285,40 +285,41 @@
           }
         })(),
         s = o(0),
-        i = a(s),
-        l = o(1),
+        l = a(s),
+        i = o(1),
         c = a(o(2))
       function a(e) {
         return e && e.__esModule ? e : { default: e }
-      }
-      function u(e, t) {
-        if (!e)
-          throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
-        return !t || ('object' != typeof t && 'function' != typeof t) ? e : t
       }
       t.default = function(e) {
         var t, o
         return (
           (o = t = (function(t) {
-            function o() {
-              var e, t, n
+            function o(e) {
               !(function(e, t) {
                 if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
               })(this, o)
-              for (var r = arguments.length, s = Array(r), i = 0; i < r; i++) s[i] = arguments[i]
+              var t = (function(e, t) {
+                if (!e)
+                  throw new ReferenceError(
+                    "this hasn't been initialised - super() hasn't been called"
+                  )
+                return !t || ('object' != typeof t && 'function' != typeof t) ? e : t
+              })(this, (o.__proto__ || Object.getPrototypeOf(o)).call(this, e))
               return (
-                (t = n = u(
-                  this,
-                  (e = o.__proto__ || Object.getPrototypeOf(o)).call.apply(e, [this].concat(s))
-                )),
-                (n.state = { selected: n.props.selected, selecting: !1 }),
-                (n.registerSelectable = function(e) {
-                  ;(n.bounds = (0, c.default)(n.node, e)), n.context.selectable.register(n)
+                (t.state = { selected: t.props.selected, selecting: !1 }),
+                (t.registerSelectable = function(e) {
+                  ;(t.bounds = (0, c.default)(t.node, e)), t.context.selectable.register(t)
                 }),
-                (n.selectableRef = function(e) {
-                  return (n.node = e)
+                (t.selectableRef = function(e) {
+                  return (t.node = e)
                 }),
-                u(n, t)
+                console.log('props.selected'),
+                console.log(e.selected),
+                (t.state = { selected: e.selected, selecting: !1 }),
+                console.log('this.state.selected'),
+                console.log(t.state.selected),
+                t
               )
             }
             return (
@@ -348,13 +349,19 @@
                 {
                   key: 'render',
                   value: function() {
-                    return i.default.createElement(
-                      e,
-                      n({}, this.props, {
-                        selected: this.state.selected,
-                        selecting: this.state.selecting,
-                        selectableRef: this.selectableRef
-                      })
+                    return (
+                      console.log('props.selected'),
+                      console.log(this.props.selected),
+                      console.log('this.state.selected'),
+                      console.log(this.state.selected),
+                      l.default.createElement(
+                        e,
+                        n({}, this.props, {
+                          selected: this.state.selected,
+                          selecting: this.state.selecting,
+                          selectableRef: this.selectableRef
+                        })
+                      )
                     )
                   }
                 }
@@ -363,7 +370,7 @@
             )
           })()),
           (t.defaultProps = { selected: !1 }),
-          (t.contextTypes = { selectable: l.object }),
+          (t.contextTypes = { selectable: i.object }),
           o
         )
       }
@@ -387,8 +394,8 @@
           }
         })(),
         s = o(0),
-        i = (n = s) && n.__esModule ? n : { default: n }
-      function l(e, t) {
+        l = (n = s) && n.__esModule ? n : { default: n }
+      function i(e, t) {
         if (!e)
           throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
         return !t || ('object' != typeof t && 'function' != typeof t) ? e : t
@@ -399,9 +406,9 @@
           !(function(e, t) {
             if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
           })(this, t)
-          for (var r = arguments.length, s = Array(r), i = 0; i < r; i++) s[i] = arguments[i]
+          for (var r = arguments.length, s = Array(r), l = 0; l < r; l++) s[l] = arguments[l]
           return (
-            (o = n = l(
+            (o = n = i(
               this,
               (e = t.__proto__ || Object.getPrototypeOf(t)).call.apply(e, [this].concat(s))
             )),
@@ -412,7 +419,7 @@
             (n.getSelectboxRef = function(e) {
               return (n.selectbox = e)
             }),
-            l(n, o)
+            i(n, o)
           )
         }
         return (
@@ -439,11 +446,11 @@
                   position: this.props.fixedPosition ? 'fixed' : 'absolute',
                   cursor: 'default'
                 }
-                return i.default.createElement(
+                return l.default.createElement(
                   'div',
                   null,
                   this.state.isBoxSelecting &&
-                    i.default.createElement('div', {
+                    l.default.createElement('div', {
                       ref: this.getSelectboxRef,
                       style: e,
                       className: this.props.className
@@ -463,37 +470,37 @@
       var n,
         r = o(2),
         s = (n = r) && n.__esModule ? n : { default: n }
-      var i = function(e, t, o, n, r, s, i, l, c) {
+      var l = function(e, t, o, n, r, s, l, i, c) {
         return (
           void 0 === c && (c = 0),
-          !(e + s - c < o || e + c > o + l || t + r - c < n || t + c > n + i)
+          !(e + s - c < o || e + c > o + i || t + r - c < n || t + c > n + l)
         )
       }
       t.default = function(e, t, o, n) {
         void 0 === n && (n = 1)
         var r = e instanceof HTMLElement ? (0, s.default)(e) : e,
-          l = t instanceof HTMLElement ? (0, s.default)(t) : t
+          i = t instanceof HTMLElement ? (0, s.default)(t) : t
         return 1 === n
-          ? i(
+          ? l(
               r.top,
               r.left,
-              l.top,
-              l.left,
+              i.top,
+              i.left,
               r.offsetWidth,
               r.offsetHeight,
-              l.offsetWidth,
-              l.offsetHeight,
+              i.offsetWidth,
+              i.offsetHeight,
               o
             )
-          : i(
+          : l(
               r.top,
               r.left,
-              l.top,
-              l.left,
+              i.top,
+              i.left,
               r.computedWidth,
               r.computedHeight,
-              l.computedWidth,
-              l.computedHeight,
+              i.computedWidth,
+              i.computedHeight,
               o
             )
       }
@@ -516,7 +523,7 @@
     function(e, t, o) {
       'use strict'
       var n = function(e) {}
-      e.exports = function(e, t, o, r, s, i, l, c) {
+      e.exports = function(e, t, o, r, s, l, i, c) {
         if ((n(t), !e)) {
           var a
           if (void 0 === t)
@@ -524,7 +531,7 @@
               'Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.'
             )
           else {
-            var u = [o, r, s, i, l, c],
+            var u = [o, r, s, l, i, c],
               f = 0
             ;(a = new Error(
               t.replace(/%s/g, function() {
@@ -563,8 +570,8 @@
         r = o(10),
         s = o(9)
       e.exports = function() {
-        function e(e, t, o, n, i, l) {
-          l !== s &&
+        function e(e, t, o, n, l, i) {
+          i !== s &&
             r(
               !1,
               'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types'
@@ -623,8 +630,8 @@
           }
         })(),
         s = o(0),
-        i = d(s),
-        l = o(1),
+        l = d(s),
+        i = o(1),
         c = d(o(8)),
         a = o(2),
         u = d(a),
@@ -662,20 +669,20 @@
                 var n = o.props,
                   r = n.minimumSpeedFactor,
                   s = n.scrollSpeed,
-                  i = o.scrollBounds.top - e.clientY
-                if (i > 0 || e.clientY < 0) {
-                  var l = t - Math.max(i, r) * s
-                  o.scrollContainer.scrollTop = l
+                  l = o.scrollBounds.top - e.clientY
+                if (l > 0 || e.clientY < 0) {
+                  var i = t - Math.max(l, r) * s
+                  o.scrollContainer.scrollTop = i
                 }
               }),
               (o.checkScrollBottom = function(e, t) {
                 var n = o.props,
                   r = n.minimumSpeedFactor,
                   s = n.scrollSpeed,
-                  i = e.clientY - o.scrollBounds.bottom
-                if (i > 0 || e.clientY > window.innerHeight) {
-                  var l = t + Math.max(i, r) * s
-                  o.scrollContainer.scrollTop = Math.min(l, o.maxScroll)
+                  l = e.clientY - o.scrollBounds.bottom
+                if (l > 0 || e.clientY > window.innerHeight) {
+                  var i = t + Math.max(l, r) * s
+                  o.scrollContainer.scrollTop = Math.min(i, o.maxScroll)
                 }
               }),
               (o.updateRegistry = function() {
@@ -688,8 +695,8 @@
                   r = void 0
                 try {
                   for (
-                    var s, i = o.registry.values()[Symbol.iterator]();
-                    !(t = (s = i.next()).done);
+                    var s, l = o.registry.values()[Symbol.iterator]();
+                    !(t = (s = l.next()).done);
                     t = !0
                   ) {
                     s.value.registerSelectable(e)
@@ -698,7 +705,7 @@
                   ;(n = !0), (r = e)
                 } finally {
                   try {
-                    !t && i.return && i.return()
+                    !t && l.return && l.return()
                   } finally {
                     if (n) throw r
                   }
@@ -720,13 +727,13 @@
                   var n = o.scrollContainer.scrollTop,
                     r = t.pageY,
                     s = t.pageX,
-                    i = (0, a.getDocumentScroll)(),
-                    l = i.documentScrollTop,
-                    c = i.documentScrollLeft,
-                    u = o.applyContainerScroll(r - o.scrollBounds.top, n - l),
+                    l = (0, a.getDocumentScroll)(),
+                    i = l.documentScrollTop,
+                    c = l.documentScrollLeft,
+                    u = o.applyContainerScroll(r - o.scrollBounds.top, n - i),
                     f = o.applyContainerScroll(
                       o.mouseDownData.boxTop - o.scrollBounds.top,
-                      o.mouseDownData.scrollTop - l
+                      o.mouseDownData.scrollTop - i
                     ),
                     p = f - u
                   f = Math.min(f - p, f)
@@ -763,25 +770,25 @@
                   n = o.props,
                   r = n.tolerance,
                   s = n.enableDeselect,
-                  i = n.mixedDeselect
+                  l = n.mixedDeselect
                 ;(e.top += o.scrollContainer.scrollTop), (e.left += o.scrollContainer.scrollLeft)
-                var l = !0,
+                var i = !0,
                   c = !1,
                   a = void 0
                 try {
                   for (
                     var u, f = o.registry.values()[Symbol.iterator]();
-                    !(l = (u = f.next()).done);
-                    l = !0
+                    !(i = (u = f.next()).done);
+                    i = !0
                   ) {
                     var p = u.value
-                    o.processItem(p, r, e, t, s, i)
+                    o.processItem(p, r, e, t, s, l)
                   }
                 } catch (e) {
                   ;(c = !0), (a = e)
                 } finally {
                   try {
-                    !l && f.return && f.return()
+                    !i && f.return && f.return()
                   } finally {
                     if (c) throw a
                   }
@@ -797,8 +804,8 @@
                     !(e = (r = s.next()).done);
                     e = !0
                   ) {
-                    var i = r.value
-                    i.setState({ selected: !1 }), o.selectedItems.delete(i)
+                    var l = r.value
+                    l.setState({ selected: !1 }), o.selectedItems.delete(l)
                   }
                 } catch (e) {
                   ;(t = !0), (n = e)
@@ -824,10 +831,10 @@
                     !(e = (r = s.next()).done);
                     e = !0
                   ) {
-                    var i = r.value
-                    o.inIgnoreList(i.node) ||
-                      i.state.selected ||
-                      (i.setState({ selected: !0 }), o.selectedItems.add(i))
+                    var l = r.value
+                    o.inIgnoreList(l.node) ||
+                      l.state.selected ||
+                      (l.setState({ selected: !0 }), o.selectedItems.add(l))
                   }
                 } catch (e) {
                   ;(t = !0), (n = e)
@@ -900,8 +907,8 @@
                   if (!o.mouseMoved && (0, c.default)(t.target, o.rootNode)) o.handleClick(t, n, r)
                   else {
                     var s = !0,
-                      i = !1,
-                      l = void 0
+                      l = !1,
+                      i = void 0
                     try {
                       for (
                         var a, u = o.selectingItems.values()[Symbol.iterator]();
@@ -911,12 +918,12 @@
                         a.value.setState({ selected: !0, selecting: !1 })
                       }
                     } catch (e) {
-                      ;(i = !0), (l = e)
+                      ;(l = !0), (i = e)
                     } finally {
                       try {
                         !s && u.return && u.return()
                       } finally {
-                        if (i) throw l
+                        if (l) throw i
                       }
                     }
                     ;(o.selectedItems = new Set(
@@ -1040,17 +1047,17 @@
                 key: 'processItem',
                 value: function(e, t, o, n, r, s) {
                   if (this.inIgnoreList(e.node)) return null
-                  var i = (0, f.default)(o, e.bounds, t, this.props.delta),
-                    l = e.state,
-                    c = l.selecting,
-                    a = l.selected
-                  if (n && i)
+                  var l = (0, f.default)(o, e.bounds, t, this.props.delta),
+                    i = e.state,
+                    c = i.selecting,
+                    a = i.selected
+                  if (n && l)
                     return (
                       a ? this.selectedItems.delete(e) : this.selectedItems.add(e),
                       e.setState({ selected: !a }),
                       (this.clickedItem = e)
                     )
-                  if (!n && i) {
+                  if (!n && l) {
                     if (a && r && (!this.selectionStarted || s))
                       return (
                         e.setState({ selected: !1 }),
@@ -1067,7 +1074,7 @@
                         { updateSelecting: !0 }
                       )
                   }
-                  return !n && !i && c && this.selectingItems.has(e)
+                  return !n && !l && c && this.selectingItems.has(e)
                     ? (e.setState({ selecting: !1 }),
                       this.selectingItems.delete(e),
                       { updateSelecting: !0 })
@@ -1175,7 +1182,7 @@
               {
                 key: 'render',
                 value: function() {
-                  return i.default.createElement(
+                  return l.default.createElement(
                     this.props.component,
                     {
                       ref: this.getGroupRef,
@@ -1185,7 +1192,7 @@
                         ' ' +
                         (this.state.selectionMode ? this.props.selectionModeClass : '')
                     },
-                    i.default.createElement(p.default, {
+                    l.default.createElement(p.default, {
                       ref: this.getSelectboxRef,
                       fixedPosition: this.props.fixedPosition,
                       className: this.props.selectboxClassName
@@ -1216,24 +1223,24 @@
         deselectOnEsc: !0,
         delta: 1
       }),
-        (v.childContextTypes = { selectable: l.object }),
+        (v.childContextTypes = { selectable: i.object }),
         (t.default = v)
     },
     function(e, t, o) {
       'use strict'
       Object.defineProperty(t, '__esModule', { value: !0 }),
         (t.DeselectAll = t.SelectAll = t.createSelectable = t.SelectableGroup = void 0)
-      var n = l(o(13)),
-        r = l(o(5)),
-        s = l(o(4)),
-        i = l(o(3))
-      function l(e) {
+      var n = i(o(13)),
+        r = i(o(5)),
+        s = i(o(4)),
+        l = i(o(3))
+      function i(e) {
         return e && e.__esModule ? e : { default: e }
       }
       ;(t.SelectableGroup = n.default),
         (t.createSelectable = r.default),
         (t.SelectAll = s.default),
-        (t.DeselectAll = i.default)
+        (t.DeselectAll = l.default)
     }
   ])
 })
