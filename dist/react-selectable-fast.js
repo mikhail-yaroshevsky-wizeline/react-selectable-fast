@@ -291,35 +291,34 @@
       function a(e) {
         return e && e.__esModule ? e : { default: e }
       }
+      function u(e, t) {
+        if (!e)
+          throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
+        return !t || ('object' != typeof t && 'function' != typeof t) ? e : t
+      }
       t.default = function(e) {
         var t, o
         return (
           (o = t = (function(t) {
-            function o(e) {
+            function o() {
+              var e, t, n
               !(function(e, t) {
                 if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
               })(this, o)
-              var t = (function(e, t) {
-                if (!e)
-                  throw new ReferenceError(
-                    "this hasn't been initialised - super() hasn't been called"
-                  )
-                return !t || ('object' != typeof t && 'function' != typeof t) ? e : t
-              })(this, (o.__proto__ || Object.getPrototypeOf(o)).call(this, e))
+              for (var r = arguments.length, s = Array(r), l = 0; l < r; l++) s[l] = arguments[l]
               return (
-                (t.state = { selected: t.props.selected, selecting: !1 }),
-                (t.registerSelectable = function(e) {
-                  ;(t.bounds = (0, c.default)(t.node, e)), t.context.selectable.register(t)
+                (t = n = u(
+                  this,
+                  (e = o.__proto__ || Object.getPrototypeOf(o)).call.apply(e, [this].concat(s))
+                )),
+                (n.state = { selected: n.props.selected, selecting: !1 }),
+                (n.registerSelectable = function(e) {
+                  ;(n.bounds = (0, c.default)(n.node, e)), n.context.selectable.register(n)
                 }),
-                (t.selectableRef = function(e) {
-                  return (t.node = e)
+                (n.selectableRef = function(e) {
+                  return (n.node = e)
                 }),
-                console.log('props.selected'),
-                console.log(e.selected),
-                (t.state = { selected: e.selected, selecting: !1 }),
-                console.log('this.state.selected'),
-                console.log(t.state.selected),
-                t
+                u(n, t)
               )
             }
             return (
@@ -344,6 +343,15 @@
                   key: 'componentWillUnmount',
                   value: function() {
                     this.context.selectable.unregister(this)
+                  }
+                },
+                {
+                  key: 'componentWillReceiveProps',
+                  value: function(e) {
+                    console.log('received new props'),
+                      this.props.selected !== e.selected &&
+                        (console.log('update selected state!!'),
+                        this.setState({ selected: e.selected }))
                   }
                 },
                 {
