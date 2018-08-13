@@ -4,6 +4,21 @@ import getBoundsForNode from './getBoundsForNode'
 
 const createSelectable = WrappedComponent =>
   class SelectableItem extends Component {
+    constructor(props) {
+      super(props)
+
+      console.log('props.selected')
+      console.log(props.selected)
+
+      this.state = {
+        selected: props.selected,
+        selecting: false,
+      }
+
+      console.log('this.state.selected')
+      console.log(this.state.selected)
+    }
+
     static propTypes = {
       selected: bool,
     }
@@ -37,6 +52,12 @@ const createSelectable = WrappedComponent =>
     selectableRef = ref => (this.node = ref)
 
     render() {
+      console.log('props.selected')
+      console.log(this.props.selected)
+
+      console.log('this.state.selected')
+      console.log(this.state.selected)
+
       return (
         <WrappedComponent
           {...this.props}
