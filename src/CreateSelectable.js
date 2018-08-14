@@ -31,10 +31,10 @@ const createSelectable = WrappedComponent =>
 
     componentWillReceiveProps(nextProps) {
       console.log('received new props')
-      if (this.props.selected !== nextProps.selected) {
-        console.log('update selected state!!')
-        this.setState({ selected: nextProps.selected })
-      }
+      this.setState({ selected: nextProps.selected })
+      // if (this.props.selected !== nextProps.selected) {
+      //   console.log('update selected state!!')
+      // }
     }
 
     registerSelectable = containerScroll => {

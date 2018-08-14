@@ -348,10 +348,7 @@
                 {
                   key: 'componentWillReceiveProps',
                   value: function(e) {
-                    console.log('received new props'),
-                      this.props.selected !== e.selected &&
-                        (console.log('update selected state!!'),
-                        this.setState({ selected: e.selected }))
+                    console.log('received new props'), this.setState({ selected: e.selected })
                   }
                 },
                 {
