@@ -312,6 +312,9 @@
                   (e = o.__proto__ || Object.getPrototypeOf(o)).call.apply(e, [this].concat(s))
                 )),
                 (n.state = { selected: n.props.selected, selecting: !1 }),
+                (n.onClickHandle = function() {
+                  console.log('clicked on element'), n.setState({ selected: !n.selected })
+                }),
                 (n.registerSelectable = function(e) {
                   ;(n.bounds = (0, c.default)(n.node, e)), n.context.selectable.register(n)
                 }),
@@ -346,12 +349,6 @@
                   }
                 },
                 {
-                  key: 'componentWillReceiveProps',
-                  value: function(e) {
-                    console.log('received new props'), this.setState({ selected: e.selected })
-                  }
-                },
-                {
                   key: 'render',
                   value: function() {
                     return (
@@ -362,6 +359,7 @@
                       l.default.createElement(
                         e,
                         n({}, this.props, {
+                          onClick: this.onClickHandle,
                           selected: this.state.selected,
                           selecting: this.state.selecting,
                           selectableRef: this.selectableRef

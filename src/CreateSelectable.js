@@ -29,12 +29,11 @@ const createSelectable = WrappedComponent =>
       this.context.selectable.unregister(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-      console.log('received new props')
-      this.setState({ selected: nextProps.selected })
-      // if (this.props.selected !== nextProps.selected) {
-      //   console.log('update selected state!!')
-      // }
+    onClickHandle = () => {
+      console.log('clicked on element')
+      this.setState({
+        selected: !this.selected,
+      })
     }
 
     registerSelectable = containerScroll => {
@@ -54,6 +53,7 @@ const createSelectable = WrappedComponent =>
       return (
         <WrappedComponent
           {...this.props}
+          onClick={this.onClickHandle}
           selected={this.state.selected}
           selecting={this.state.selecting}
           selectableRef={this.selectableRef}
