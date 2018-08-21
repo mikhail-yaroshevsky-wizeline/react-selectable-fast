@@ -810,7 +810,7 @@
                   }
                 }
                 o.setState({ selectionMode: !1 }),
-                  o.props.onSelectionFinish([].concat(h(o.selectedItems))),
+                  o.mouseDownStarted || o.props.onSelectionFinish([].concat(h(o.selectedItems))),
                   o.props.onSelectionClear()
               }),
               (o.selectAll = function() {
