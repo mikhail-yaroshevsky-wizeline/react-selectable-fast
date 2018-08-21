@@ -355,7 +355,13 @@ class SelectableGroup extends Component {
     }
 
     this.setState({ selectionMode: false })
-    this.props.onSelectionFinish([...this.selectedItems])
+
+    // don't invoke onSelectionFinish when in selection
+    // the logic is, selection has not finished yet
+    if (!this.mouseDownStarted) {
+      this.props.onSelectionFinish([...this.selectedItems])
+    }
+
     this.props.onSelectionClear()
   }
 
@@ -391,8 +397,8 @@ class SelectableGroup extends Component {
   mouseDown = e => {
     if (this.mouseDownStarted || this.props.disabled) return
 
-    // Don't init selection on selectableElement"
-    // TODO add this to configuration props
+    // Don't init selection on selectableElement if canStartOnSelectable set
+    // and not directly clicking selection area
     if (!this.props.canStartOnSelectable && e.target !== e.currentTarget) {
       return
     }
