@@ -850,8 +850,8 @@
                   if ((o.updateWhiteListNodes(), o.inIgnoreList(e.target))) o.mouseDownStarted = !1
                   else {
                     if (
-                      (o.props.resetOnStart && o.clearSelection(),
-                      (o.mouseDownStarted = !0),
+                      ((o.mouseDownStarted = !0),
+                      o.props.resetOnStart && o.clearSelection(),
                       (o.mouseUpStarted = !1),
                       (e = o.desktopEventCoords(e)),
                       !o.props.globalMouse && !(0, c.default)(e.target, o.selectableGroup))

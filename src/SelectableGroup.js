@@ -409,10 +409,12 @@ class SelectableGroup extends Component {
       return
     }
 
+    this.mouseDownStarted = true
+
     if (this.props.resetOnStart) {
       this.clearSelection()
     }
-    this.mouseDownStarted = true
+
     this.mouseUpStarted = false
     e = this.desktopEventCoords(e)
 
